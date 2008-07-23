@@ -55,6 +55,8 @@ The next approach is to define a `byte[]` field in your object to store the extr
     }
 }}}
 
+This places no inheritance constraints on your objects, but is still simple to implement.
+
 == Custom Implementations ==
 
 The final option is to provide a bespoke `IExtensible` implementation, perhaps reading/writing to a file-system etc.
