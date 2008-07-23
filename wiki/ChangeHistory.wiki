@@ -3,7 +3,7 @@
 
 = Alpha Builds =
 
-==r72==
+==23 Jul 2008: r72==
 
   * Support for deserializing known sub-object fields encoded using groups
     * data is serialized as length-prefixed; not supported for extension fields
@@ -11,7 +11,7 @@
   * Recursion detection when serializing
 
 
-==r53==
+==22 Jul 2008: r53==
 
   * Optimised field lookup during deserialization
   * Wcf example
