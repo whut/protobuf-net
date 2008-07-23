@@ -84,3 +84,11 @@ You can access data at runtime via the static `Extension` methods (noting that y
         Console.WriteLine(s);
     }
 }}}
+
+== Data Formats ==
+
+All of the above methods have overloads to specify the [DataFormat data-format] to use (zigzag vs fixed-length, etc). The wire-type will be selected automatically based on the type and data-format, but must be compatible for all stored values (even if a value stored in a different data-format has been superceded).
+
+== Extension Tags ==
+
+At present, the tags used for extension data must be separate to the known tags defined for the message. In this case, use the property accessor instead (support for reading known tags through `Extensible` may be added later).
