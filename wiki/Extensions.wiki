@@ -73,6 +73,7 @@ You can access data at runtime via the static `Extension` methods (noting that y
     // retrieve the value, indicating whether it was found [singleton]
     bool found = Extensible.TryGetValue<float>(obj, 3, out value);
 
+
     // store two strings in tag 4
     Extensible.AppendValue<string>(obj, 4, "foo");
     Extensible.AppendValue<string>(obj, 4, "bar");
