@@ -59,7 +59,7 @@ This places no inheritance constraints on your objects, but is still simple to i
 
 == Custom Implementations ==
 
-The final option is to provide a bespoke `IExtensible` implementation, perhaps reading/writing to a file-system etc.
+The final option is to provide a bespoke `IExtensible` implementation, perhaps reading/writing to a file-system etc. Implementation notes are provided in the [http://code.google.com/p/protobuf-net/source/browse/trunk/protobuf-net/IExtensible.cs interface documentation].
 
 = Accessing Extension Fields =
 
