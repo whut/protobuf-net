@@ -1,0 +1,17 @@
+#summary What's new in each version
+#labels Featured
+
+= Alpha Builds =
+
+r72
+* Support for deserializing known sub-object fields encoded using groups (instead of length-prefixed); data is serialized as length-prefixed; not supported for extension fields
+* Support for [Extensions extension] fields
+* Recursion detection when serializing
+
+
+r53
+* Optimised field lookup during deserialization
+* Wcf example
+* Silverlight example
+* Support for enums
+* Compatibility tweaks (C# 2 / mono / .NET 2.0 / VS2005 / Sliverlight)
