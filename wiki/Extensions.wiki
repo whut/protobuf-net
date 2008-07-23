@@ -9,11 +9,11 @@ The .proto architecture allows you to use [http://code.google.com/apis/protocolb
 
 Objects in protobuf-net are not extensible by default, since they are just regular .NET classes; this means that any unexpected fields will be silently dropped during deserialization, and will be lost during serialization. It is, however, trivial to support extensions.
 
-The key to extension support is the [http://code.google.com/p/protobuf-net/source/browse/trunk/protobuf-net/IExtensible.cs `IExtensible`] interface. This provides hooks to store and retrieve additional binary data against an instance. There are three ways of implementing this interface.
+The key to extension support is the [http://code.google.com/p/protobuf-net/source/browse/trunk/protobuf-net/IExtensible.cs IExtensible] interface. This provides hooks to store and retrieve additional binary data against an instance. There are three ways of implementing this interface.
 
 == Inherit from Extensible ==
 
-The simplest way to make a .NET type extensible is to derive from [http://code.google.com/p/protobuf-net/source/browse/trunk/protobuf-net/Extensible.cs `Extensible`]:
+The simplest way to make a .NET type extensible is to derive from [http://code.google.com/p/protobuf-net/source/browse/trunk/protobuf-net/Extensible.cs Extensible]:
 
 {{{
     [ProtoContract]
@@ -58,3 +58,25 @@ The next approach is to define a `byte[]` field in your object to store the extr
 == Custom Implementations ==
 
 The final option is to provide a bespoke `IExtensible` implementation, perhaps reading/writing to a file-system etc.
+
+= Accessing Extension Fields =
+
+You can access data at runtime via the static `Extension` methods (noting that you need to consider whether values are singleton or repeated):
+
+{{{
+    // store a float value as tag 3
+    Extensible.AppendValue<float>(obj, 3, 123.45F);
+    // retrieve the value or the type's default if not found [singleton]
+    float value = Extensible.GetValue<float>(obj, 3);
+    // retrieve the value, indicating whether it was found [singleton]
+    bool found = Extensible.TryGetValue<float>(obj, 3, out value);
+
+    // store two strings in tag 4
+    Extensible.AppendValue<string>(obj, 4, "foo");
+    Extensible.AppendValue<string>(obj, 4, "bar");
+    // read any stored values [repeated]
+    foreach(string s in Extensible.GetValues<string>(obj, 4))
+    {
+        Console.WriteLine(s);
+    }
+}}}
