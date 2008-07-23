@@ -1,0 +1,31 @@
+#summary How to use extension features with protobuf-net.
+
+= Introduction =
+
+The .proto architecture allows you to use [http://code.google.com/apis/protocolbuffers/docs/proto.html#extensions extensions] so that fields can be added to a message without anything breaking; this document discusses use of extensions in protobuf-net.
+
+
+= Details =
+
+Objects in protobuf-net are not extensible by default, since they are just regular .NET classes; this means that any unexpected fields will be silently dropped during deserialization, and will be lost during serialization. It is, however, trivial to support extensions.
+
+The key to extension support is the http://code.google.com/p/protobuf-net/source/browse/trunk/protobuf-net/IExtensible.cs `IExtensible`] interface. This provides hooks to store and retrieve additional binary data against an instance. There are three ways of implementing this interface.
+
+== Inherit from Extensible ==
+
+The simplest way to make a .NET type extensible is to derive from [http://code.google.com/p/protobuf-net/source/browse/trunk/protobuf-net/Extensible.cs `Extensible`]:
+
+{{{
+[ProtoContract]
+public class MyObject : Extensible
+{
+  [ProtoMember(1)]
+  public int KnownField {get;set;}
+}
+}}}
+
+This has the advantage of simplicity, but ties you into a specific object hierarchy.
+
+== Simple Buffer ==
+
+The next approach is to define a `byte[]` field in your object to store the extra data, and simply call the static `Extensible` method:
