@@ -5,7 +5,7 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-=24 Jul 2008: r86=
+==24 Jul 2008: r86==
 
   * Support for single-dimension arrays (naïve implementation)
   * Support for Compact Framework 2.0 & 3.5
