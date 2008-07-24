@@ -1,7 +1,22 @@
 #summary What's new in each version
 #labels Featured
 
+==Work In Progress==
+
+Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
+
+=24 Jul 2008: r86=
+
+  * Support for single-dimension arrays (naïve implementation)
+  * Support for Compact Framework 2.0 & 3.5
+  * Support for extension fields encoded as groups
+    * (includes dropping data for inextensible objects)
+  * Fixed handling of type-init / dynamic-invoke exceptions
+  * Code tidied as per code analysis / source analysis
+
 = Alpha Builds =
+
+Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
 
 ==23 Jul 2008: r72==
 
