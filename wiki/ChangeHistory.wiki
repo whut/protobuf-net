@@ -1,7 +1,7 @@
 #summary What's new in each version
 #labels Featured
 
-==Work In Progress==
+=Work In Progress=
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
