@@ -34,8 +34,8 @@ A simple option would be to encode with fixed precision; say 4 digits; this woul
 
 As such, the proposed scheme is to use pack the scale (number of decimal digits) as an integer (0-15) in the first 4 low bits of the value. So:
 
-123.45 is encoded as 12345 with scale 2: (12345 << 4) | 2 = 197522
-0.0000012345 is encoded as 12345 with scale 10: (12345 << 4) | 10 = 197530
+  * 123.45 is encoded as 12345 with scale 2: (12345 << 4) | 2 = 197522
+  * 0.0000012345 is encoded as 12345 with scale 10: (12345 << 4) | 10 = 197530
 
 Both signed and unsigned variant encodings should be supported. For efficiency, any redundant scale information should be discarded; for example a `Decimal` may hold "0.400", which is 4 with a scale of 3; but this should be encoded as 4 with a scale of 1.
 
@@ -62,7 +62,7 @@ A `DateTime` represents both date and time information to a precision of ticks, 
 
 The value to encode is the difference (in the appropriate scale) between the value and the unix-time origin (01-01-1970). So the date 01 Jan 2008 can be encoded as:
 
-delta = 13879 days; (13879 << 2) | 0 = 55516
+  * delta = 13879 days; (13879 << 2) | 0 = 55516
 
 The most appropriate scale should be determined by inspection of the value. Additionally, note that `DateTime.MaxValue` is "all the 9s" (including below the millisecond level). To allow efficient round-trip of such values, "01-01-10000" (or rather, 2932897 on a scale of days) shall be equiavalent to `DateTime.MaxValue` in either direction. No such treatment is necessary for `DateTime.MinValue`.
 
