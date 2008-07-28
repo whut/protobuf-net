@@ -1,0 +1,41 @@
+#summary Suggested practice for handling additional .NET types
+
+= Introduction =
+
+While the .proto encoding document covers many of the primative data types, it does not provide for the constructed .NET data types such as DateTime, Decimal, etc. This document discusses some options for encoding such data.
+
+== Guid ==
+
+A Guid is a 128-bit integer, with fairly uniform distribution; as such no "clever" encoding is possible. It is suggested to use the string wire-type (bytes .proto type) to represent the data. An encoded value would always take 17 bytes: 1 byte for the length prefix (always 16), and 16 bytes for the data.
+
+== Aside: Aim Variant ==
+
+It is important to retain compatibility with the existing wire-types, so that any client can at least process/round-trip a message without error; and even if the serialization core doesn't understand any extra encoding, it can still be applied post-deserialization.
+
+To enable this, both Decimal and DateTime are presented using the Variant wire-type (int64 / sint64 .proto types). Both proposals pack additional data into the low bits of the value, restricting the overall range. Additionally note that care must be taken not to lose the sign (nor propegate the sign incorrectly) by shifting.
+
+Note also that for signed data, this extra packing happens before zigzag encoding when serializing, and after zigzag decoding when deserializing; this allows existing zigzag / base-128 code to be used without modification.
+
+== Decimal ==
+
+A Decimal is comparable to IEEE 754 floating-point numbers, expect a decimal base is used. This makes it suitable for holding values like money, where decimal rounding rules are expected (IEEE 754 values, on the other-hand, cannot represent many simple-looking decimal values exactly).
+
+A typical decimal value might be:
+
+123.45
+
+A simple option would be to encode with fixed precision; say 4 digits; this would then be encoded as the integer 12345 and adjusted during (de)deserialization. However, this does not do justice to the full range of decimal values: since decimal is still a floating-point type, it can accurately hold values such as:
+
+0.0000012345
+
+As such, the proposed scheme is to use pack the scale (number of decimal digits) as an integer (0-15) in the first 4 low bits of the value. So:
+
+123.45 is encoded as 12345 with scale 2: (12345 << 4) | 2 = 197522
+0.0000012345 is encoded as 12345 with scale 10: (12345 << 4) | 10 = 197530
+
+This allows a good range of decimal values to be encoded making good use of variant encoding, and without the expense of fixed-point. Note, however, that this still only leaves 60 bits of data for the value; Decimal is itself allows 96 bits for the value, and a scale in the range 0-28; so the range of variant encoded values is limited by necessity.
+
+For the _full_ range of values (rarely used in practice) it may be desirable to optionally offer a full-width representation via the bytes/string types: this would comprise 14 bytes:
+1 byte for the length prefix (always 13)
+1 byte for the scale and sign (scale in the low 5 bytes; sign in the high byte)
+12 bytes for the value
