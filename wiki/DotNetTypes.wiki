@@ -4,7 +4,7 @@
 
 While the .proto encoding document covers many of the primative data types, it does not provide for the constructed .NET data types such as DateTime, Decimal, etc. This document discusses some options for encoding such data.
 
-== Guid ==
+== [http://msdn.microsoft.com/en-us/library/system.guid.aspx Guid] ==
 
 A Guid is a 128-bit integer, with fairly uniform distribution; as such no "clever" encoding is possible. It is suggested to use the string wire-type (bytes .proto type) to represent the data. An encoded value would always take 17 bytes: 1 byte for the length prefix (always 16), and 16 bytes for the data.
 
@@ -20,7 +20,7 @@ To enable this, both Decimal and DateTime are presented using the Variant wire-t
 
 Note also that for signed data, this extra packing happens before zigzag encoding when serializing, and after zigzag decoding when deserializing; this allows existing zigzag / base-128 code to be used without modification.
 
-== Decimal ==
+== [http://msdn.microsoft.com/en-us/library/system.decimal.aspx Decimal] ==
 
 A Decimal is comparable to IEEE 754 floating-point numbers, expect a decimal base is used. This makes it suitable for holding values like money, where decimal rounding rules are expected (IEEE 754 values, on the other-hand, cannot represent many simple-looking decimal values exactly).
 
@@ -50,7 +50,7 @@ For the _full_ range of values (rarely used in practice) it may be desirable to 
 
 The layout is explained more [http://msdn.microsoft.com/en-us/library/system.decimal.aspx here]; note that for .NET usage this data can obtained via [http://msdn.microsoft.com/en-us/library/system.decimal.getbits.aspx GetBits], and re-combined with one of two custom constructors ([http://msdn.microsoft.com/en-us/library/t1de0ya1.aspx here] and [http://msdn.microsoft.com/en-us/library/bb1c1a6x.aspx here]).
 
-== DateTime ==
+== [http://msdn.microsoft.com/en-us/library/system.datetime.aspx DateTime] ==
 
 A DateTime represents both date and time information to a precision of ticks, but in reality most DateTimes are actually just entire days, or a date plus a time (to the second). To capitalise on this knowledge, it is proposed to pack a scale marker into the low two bits of the value:
 
@@ -68,3 +68,13 @@ The most appropriate scale should be determined by inspection of the value. Addi
 === Range ===
 
 The full range of DateTime can be encoded, but not to tick precision.
+
+== [http://msdn.microsoft.com/en-us/library/system.uri.aspx Uri] ==
+
+A Uri represents a regular uri/url, but with additional support for inspecting the value and crating relative values.
+
+Uri values should be treated as strings, using [http://msdn.microsoft.com/en-us/library/system.uri.tostring.aspx ToString] and the comparable [http://msdn.microsoft.com/en-us/library/z6c2z492.aspx constructor].
+
+=== Range ===
+
+The range for Uri is not affected.
