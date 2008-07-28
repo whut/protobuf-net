@@ -2,6 +2,8 @@
 
 = Introduction =
 
+(caveat; this is a discussion document, and only represents my own initial thoughts; it is not *in any way* an official document!)
+
 While the .proto encoding document covers many of the primative data types, it does not provide for the constructed .NET data types such as `DateTime`, `Decimal`, etc. This document discusses some options for encoding such data.
 
 == [http://msdn.microsoft.com/en-us/library/system.guid.aspx Guid] ==
