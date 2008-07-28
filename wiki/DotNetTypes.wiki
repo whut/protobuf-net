@@ -22,13 +22,13 @@ Note also that for signed data, this extra packing happens before zigzag encodin
 
 == [http://msdn.microsoft.com/en-us/library/system.decimal.aspx Decimal] ==
 
-A `Decimal` is comparable to IEEE 754 floating-point numbers, expect a decimal base is used. This makes it suitable for holding values like money, where decimal rounding rules are expected (IEEE 754 values, on the other-hand, cannot represent many simple-looking decimal values exactly).
+A `Decimal` is comparable to IEEE 754 floating-point numbers, except a decimal base is used. This makes it suitable for holding values like money, where decimal rounding rules are expected (IEEE 754 values, on the other-hand, cannot represent many simple-looking decimal values exactly).
 
 A typical `Decimal` value might be:
 
 123.45
 
-A simple option would be to encode with fixed precision; say 4 digits; this would then be encoded as the integer 12345 and adjusted during (de)deserialization. However, this does not do justice to the full range of decimal values: since decimal is still a floating-point type, it can accurately hold values such as:
+A simple option would be to encode with fixed precision; say 4 digits; this would then be encoded as the integer 1234500 and adjusted during (de)deserialization. However, this does not do justice to the full range of decimal values: since decimal is still a floating-point type, it can accurately hold values such as:
 
 0.0000012345
 
