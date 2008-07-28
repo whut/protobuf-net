@@ -32,12 +32,12 @@ A simple option would be to encode with fixed precision; say 4 digits; this woul
 
 0.0000012345
 
-As such, the proposed scheme is to use pack the scale (number of decimal digits) as an integer (0-15) in the first 4 low bits of the value. So:
+As such, the proposed scheme is to pack the scale (number of decimal digits) as an integer (0-15) in the first 4 low bits of the value. So:
 
   * 123.45 is encoded as 12345 with scale 2: (12345 << 4) | 2 = 197522
   * 0.0000012345 is encoded as 12345 with scale 10: (12345 << 4) | 10 = 197530
 
-Both signed and unsigned variant encodings should be supported. For efficiency, any redundant scale information should be discarded; for example a `Decimal` may hold "0.400", which is 4 with a scale of 3; but this should be encoded as 4 with a scale of 1.
+Both signed and unsigned variant encodings should be supported. For efficiency, any redundant scale information should be discarded; for example a `Decimal` may hold "0.400", which is 400 with a scale of 3; but this should be encoded as 4 with a scale of 1.
 
 === Range ===
 
