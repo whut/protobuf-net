@@ -6,6 +6,14 @@
 
 While the .proto encoding document covers many of the primative data types, it does not provide for the constructed .NET data types such as `DateTime`, `Decimal`, etc. This document discusses some options for encoding such data.
 
+== UInt16, Char, Byte ==
+
+Encoded as uint32
+
+== Int16, SByte ==
+
+Encoded as sint32
+
 == [http://msdn.microsoft.com/en-us/library/system.guid.aspx Guid] ==
 
 A `Guid` is a 128-bit integer, with fairly uniform distribution; as such no "clever" encoding is possible. It is suggested to use the string wire-type (bytes .proto type) to represent the data.
@@ -35,16 +43,16 @@ A simple option would be to encode with fixed precision; say 4 digits; this woul
 
 0.0000012345
 
-As such, the proposed scheme is to pack the scale (number of decimal digits) as an integer (0-15) in the first 4 low bits of the value. So:
+As such, the proposed scheme is to pack the scale (number of decimal digits *in multiples of 2*) as an integer (0-15) in the first 4 low bits of the value. So:
 
-  * 123.45 is encoded as 12345 with scale 2: (12345 << 4) | 2 = 197522
-  * 0.0000012345 is encoded as 12345 with scale 10: (12345 << 4) | 10 = 197530
+  * 123.45 is encoded as 12345 with scale 1: (12345 << 4) | 1 = 197521
+  * 0.0000012345 is encoded as 12345 with scale 5: (12345 << 4) | 5 = 197525
 
-Both signed and unsigned variant encodings should be supported. For efficiency, any redundant scale information should be discarded; for example a `Decimal` may hold "0.400", which is 400 with a scale of 3; but this should be encoded as 4 with a scale of 1.
+Both signed and unsigned variant encodings should be supported. For efficiency, any redundant scale information should be discarded; for example a `Decimal` may hold "0.400", which is 400 with a scale of 3; but this should be encoded as 40 with a scale of 1 (if the number of decimal places is odd, then the valuie should be multiplied by 10 to get the next appropriate scale).
 
 === Range ===
 
-This allows a good range of typical decimal values to be encoded making good use of variant encoding, and without the expense of fixed-point. Note, however, that this still only leaves 60 bits of data for the value; `Decimal` itself allows 96 bits for the value, and a scale in the range 0-28; so the range of variant encoded values is limited by necessity.
+This allows a good range of typical decimal values to be encoded making good use of variant encoding, and without the expense of fixed-point. Note, however, that this still only leaves 60 bits of data for the value; `Decimal` itself allows 96 bits for the value -so the range of variant encoded values is limited by necessity. However, the full scale of `Decimal` (0-28 decimal places) can be represented.
 
 For the _full_ range of values (rarely used in practice) it may be desirable to optionally offer a full-width representation via the bytes/string types: this would comprise 14 bytes:
 
@@ -54,24 +62,30 @@ For the _full_ range of values (rarely used in practice) it may be desirable to 
 
 The layout is explained more [http://msdn.microsoft.com/en-us/library/system.decimal.aspx here]; note that for .NET usage this data can obtained via [http://msdn.microsoft.com/en-us/library/system.decimal.getbits.aspx GetBits], and re-combined with one of two custom constructors ([http://msdn.microsoft.com/en-us/library/t1de0ya1.aspx here] and [http://msdn.microsoft.com/en-us/library/bb1c1a6x.aspx here]).
 
-== [http://msdn.microsoft.com/en-us/library/system.datetime.aspx DateTime] ==
+== [http://msdn.microsoft.com/en-us/library/system.datetime.aspx DateTime] / [http://msdn.microsoft.com/en-us/library/system.timespan.aspx TimeSpan]==
 
-A `DateTime` represents both date and time information to a precision of ticks, but in reality most `DateTime`s are actually just entire days, or a date plus a time (to the second). To capitalise on this knowledge, it is proposed to pack a scale marker into the low two bits of the value:
+A `TimeSpan` represents a time interval (to a precision of ticks); a `DateTime` represents both date and time information. In reality most `DateTime`s and `TimeSpan`s are either entire days; or have values accurate to a second or millisecond.
+
+`DateTime` will be encodes as `TimeSpan` values relative to the unix-time origin (01-01-1970).
+
+To capitalise on the typical `TimeSpan` values, it is proposed to pack a scale marker into the low two bits of the value:
 
   * 0 = days
   * 1 = seconds
   * 2 = milliseconds
   * 3 = (not used)
 
-The value to encode is the difference (in the appropriate scale) between the value and the unix-time origin (01-01-1970). So the date 01 Jan 2008 can be encoded as:
+As such, the date 01 Jan 2008 can be encoded as:
 
   * delta = 13879 days; (13879 << 2) | 0 = 55516
 
-The most appropriate scale should be determined by inspection of the value. Additionally, note that `DateTime.MaxValue` is "all the 9s" (including below the millisecond level). To allow efficient round-trip of such values, "01-01-10000" (or rather, 2932897 on a scale of days) shall be equiavalent to `DateTime.MaxValue` in either direction. No such treatment is necessary for `DateTime.MinValue`.
+The most appropriate scale should be determined by inspection of the value.
+
+Additionally, note that `DateTime.MaxValue` is "all the 9s" (including below the millisecond level). To allow efficient round-trip of such values, "01-01-10000" (or rather, 2932897 on a scale of days) shall be equiavalent to `DateTime.MaxValue` in either direction. No such treatment is necessary for `DateTime.MinValue`. This special-case only applies to `DateTime` values; a `TimeSpan` of 2932897 days is stil exactly that.
 
 === Range ===
 
-The full range of `DateTime` can be encoded, but not to tick precision.
+The full range of `DateTime` on `TimeSpan` values can be encoded, but only to millisecond precision.
 
 == [http://msdn.microsoft.com/en-us/library/system.uri.aspx Uri] ==
 
