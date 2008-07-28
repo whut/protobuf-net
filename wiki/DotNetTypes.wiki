@@ -26,12 +26,12 @@ The empty guid ("00000000-0000-0000-0000-000000000000") may be represented as a 
 === Option 2 ===
 
 An alternative encoding would be to wrap the values in a sub-message, as below:
-
-message Guid 
-{ 
- required fixed64 lo = 1 [default = 0] 
- required fixed64 hi = 2 [default = 0] 
-} 
+{{{
+message Guid { 
+  required fixed64 lo = 1 [default = 0] 
+  required fixed64 hi = 2 [default = 0] 
+}
+}}}
 
 This then costs 19 bytes per Guid: 1 byte for the sub-message length (=18), one byte each for the two tags (lo/hi), and 8 bytes each for the data (lo/hi).
 
