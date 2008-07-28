@@ -16,8 +16,24 @@ Encoded as sint32
 
 == [http://msdn.microsoft.com/en-us/library/system.guid.aspx Guid] ==
 
-A `Guid` is a 128-bit integer, with fairly uniform distribution; as such no "clever" encoding is possible. It is suggested to use the string wire-type (bytes .proto type) to represent the data.
+A `Guid` is a 128-bit integer, with fairly uniform distribution; as such no "clever" encoding is possible.
+
+=== Option 1 ===
+
+It is suggested to use the string wire-type (bytes .proto type) to represent the data.
 The empty guid ("00000000-0000-0000-0000-000000000000") may be represented as a single byte (zero), indicating an empty buffer. Any other encoded value would always take 17 bytes: 1 byte for the length prefix (always 16), and 16 bytes for the data.
+
+=== Option 2 ===
+
+An alternative encoding would be to wrap the values in a sub-message, as below:
+
+message Guid 
+{ 
+ required fixed64 lo = 1 [default = 0] 
+ required fixed64 hi = 2 [default = 0] 
+} 
+
+This then costs 19 bytes per Guid: 1 byte for the sub-message length (=18), one byte each for the two tags (lo/hi), and 8 bytes each for the data (lo/hi).
 
 === Range ===
 
