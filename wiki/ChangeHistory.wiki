@@ -11,6 +11,20 @@ Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads
 
 Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
 
+==20 Aug 2008: r153==
+
+Oops - a bit of a change gap...
+
+  * Refactored property implementation for performance
+  * Support for multiple readers for a single property
+  * Various .proto emitter fixes
+  * Support for DateTime etc as "bcl" messages
+  * Uses optimistic length guess (rather than full length calculation) for sub-messages
+  * Support for full streaming (IEnumerable<T>/Add rather than IList<T>)
+  * Re-worked array/list to peek for next item (replaces naïve from r90)
+  * Multi-byte utf8 fixes
+  * Various other fixes
+
 ==24 Jul 2008: r90==
 
   * Performance; "workspace" buffer now always 0-based; uses lightweight recursion check up to threshold; length prediction streamlined; encode now writes to stream (not workspace)
