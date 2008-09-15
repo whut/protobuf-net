@@ -8,6 +8,7 @@ Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads
   * DateTime/TimeSpan support for tick-level precision and/or Fixed64 encoding
   * Moved WCF to non-default port (false positive failures due to conflicts)
   * Fixed Int64 encoding bug [whoops!]
+  * Allow tag inference (comparable to WCF behaviour) [opt-in only]
 
 = Alpha Builds =
 
