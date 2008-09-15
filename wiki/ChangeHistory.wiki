@@ -5,7 +5,9 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-
+  * DateTime/TimeSpan support for tick-level precision and/or Fixed64 encoding
+  * Moved WCF to non-default port (false positive failures due to conflicts)
+  * Fixed Int64 encoding bug [whoops!]
 
 = Alpha Builds =
 
