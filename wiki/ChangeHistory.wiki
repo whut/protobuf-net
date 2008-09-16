@@ -9,6 +9,8 @@ Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads
   * Moved WCF to non-default port (false positive failures due to conflicts)
   * Fixed Int64 encoding bug [whoops!]
   * Allow tag inference (comparable to WCF behaviour) [opt-in only]
+  * Removed class/new constraints for [most] Serializer methods
+  * Support direct serialization of IList<T>/T[]/IEnumerable<T>+Add(T) objects
 
 = Alpha Builds =
 
