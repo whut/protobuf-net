@@ -11,6 +11,7 @@ Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads
   * Allow tag inference (comparable to WCF behaviour) [opt-in only]
   * Removed class/new constraints for [most] Serializer methods
   * Support direct serialization of IList<T>/T[]/IEnumerable<T>+Add(T) objects
+  * Added global default for InferTagFromName
 
 = Alpha Builds =
 
