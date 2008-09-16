@@ -6,12 +6,13 @@
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
   * DateTime/TimeSpan support for tick-level precision and/or Fixed64 encoding
-  * Moved WCF to non-default port (false positive failures due to conflicts)
+  * Moved WCF unit tests to non-default port (false positive failures due to conflicts)
   * Fixed Int64 encoding bug [whoops!]
   * Allow tag inference (comparable to WCF behaviour) [opt-in only]
   * Removed class/new constraints for [most] Serializer methods
   * Support direct serialization of IList<T>/T[]/IEnumerable<T>+Add(T) objects
   * Added global default for InferTagFromName
+  * Enabled WCF serialization of list/array
 
 = Alpha Builds =
 
