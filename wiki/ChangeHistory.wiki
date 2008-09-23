@@ -9,6 +9,7 @@ Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads
 
   * Allow  [http://groups.google.com/group/protobuf/browse_thread/thread/8f6e9ba3ee923bdb negative enum values]
   * Changed GetPassThru to side-step Mono compiler issue
+  * QuickStart sample begun
 
 = Beta Builds =
 
