@@ -5,6 +5,10 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
+==23 Sep 2008: r167==
+
+  * Allow  [http://groups.google.com/group/protobuf/browse_thread/thread/8f6e9ba3ee923bdb negative enum values]
+  * Changed GetPassThru to side-step Mono compiler issue
 
 = Beta Builds =
 
@@ -14,10 +18,10 @@ Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
 
   * DateTime/TimeSpan support for tick-level precision and/or Fixed64 encoding
   * Moved WCF unit tests to non-default port (false positive failures due to conflicts)
-  * Fixed Int64 encoding bug [whoops!]
-  * Allow tag inference (comparable to WCF behaviour) [opt-in only]
+  * Fixed Int64 encoding bug (whoops!)
+  * Allow tag inference (comparable to WCF behaviour, opt-in only)
   * Removed class/new constraints for [most] Serializer methods
-  * Support direct serialization of IList<T>/T[]/IEnumerable<T>+Add(T) objects
+  * Support direct serialization of `IList<T>`/`T[]`/`IEnumerable<T>`+`Add(T)` objects
   * Added global default for InferTagFromName
   * Enabled WCF serialization of list/array
   * Primatives / string / etc can now be serialized directly (without an entity)
