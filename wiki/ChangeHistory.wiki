@@ -5,16 +5,18 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-==23 Sep 2008: r167==
-
-  * Allow  [http://groups.google.com/group/protobuf/browse_thread/thread/8f6e9ba3ee923bdb negative enum values]
-  * Changed GetPassThru to side-step Mono compiler issue
-  * QuickStart sample begun
+(nothing outstanding...)
 
 = Beta Builds =
 
 Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
 
+==06 Oct 2008: r171==
+
+  * Allow  [http://groups.google.com/group/protobuf/browse_thread/thread/8f6e9ba3ee923bdb negative enum values]
+  * Changed GetPassThru to side-step Mono compiler issue (note compiler bug fixed in mono 2.0)
+  * QuickStart sample begun
+  
 ==18 Sep 2008: r164==
 
   * DateTime/TimeSpan support for tick-level precision and/or Fixed64 encoding
