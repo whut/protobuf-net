@@ -5,7 +5,9 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-(nothing outstanding...)
+==06 Oct 2008: r173==
+
+  * Support fields in addition to properties
 
 = Beta Builds =
 
