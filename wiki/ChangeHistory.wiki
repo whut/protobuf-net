@@ -5,19 +5,21 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-==06 Oct 2008: r173==
+==06 Oct 2008: r174==
 
   * Support fields in addition to properties
+  * Add quotes to string-based defaults (waiting on escape clarification)
 
 = Beta Builds =
 
 Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
 
-==06 Oct 2008: r171==
+==06 Oct 2008: r172==
 
   * Allow  [http://groups.google.com/group/protobuf/browse_thread/thread/8f6e9ba3ee923bdb negative enum values]
   * Changed GetPassThru to side-step Mono compiler issue (note compiler bug fixed in mono 2.0)
-  * QuickStart sample begun
+  * QuickStart sample begun; SubStream re-introduced for NetworkStream sample
+    "WithLengthPrefix" methods added to assist with sockets-based usage
   
 ==18 Sep 2008: r164==
 
