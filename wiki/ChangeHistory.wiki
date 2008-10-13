@@ -1,10 +1,15 @@
-#summary What's new in each version
+﻿#summary What's new in each version
 #labels Featured
 
 =Work In Progress=
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
+==13 Oct 2008: r177==
+
+  * Allow creation via non-public constructors, and allow Merge on objects without any parameterless constructor.
+  * Clarified error message for (failed) creation without a parameterless constructor.
+  
 ==06 Oct 2008: r174==
 
   * Support fields in addition to properties
