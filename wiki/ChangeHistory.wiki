@@ -5,7 +5,9 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-(none)
+==24 Oct 2008: r179 ==
+
+  * Support dictionary / keyvaluepair
 
 = Releases =
 
