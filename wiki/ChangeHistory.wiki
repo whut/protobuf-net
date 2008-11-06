@@ -5,6 +5,14 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
+==04 Nov 2008 ==
+
+  * Minor buffer / encoding optimisations
+  
+==01 Nov 2008 ==
+
+  * .proto parser (ProtoGen)
+  
 ==24 Oct 2008: r179 ==
 
   * Support dictionary / keyvaluepair
