@@ -5,6 +5,12 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
+==20 Nov 2008: r211==
+
+  * Allow (optional) implicit serialization of fields (like BinaryFormatter) or the entire public API
+  * Make QuickStart customer/contact public for CF 2.0 security glitch
+  * Bugfix with inheritance (affected all except MemoryStream)
+
 ==11 Nov 2008: r202==
 
   * Minor buffer / encoding optimisations
