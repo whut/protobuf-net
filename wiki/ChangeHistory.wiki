@@ -5,6 +5,17 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
+(none)
+
+= Releases =
+
+Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
+
+==21 Nov 2008: r212==
+
+  * Implicit fields skips delegates (including event-backers) and [NonSerialized]
+  * Detect CF 2.0 non-public runtime bug and offer advice
+  
 ==20 Nov 2008: r211==
 
   * Allow (optional) implicit serialization of fields (like BinaryFormatter) or the entire public API
@@ -18,10 +29,6 @@ Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads
   * Support dictionary / keyvaluepair
   * Buildkit
   * Start of RPC stack
-
-= Releases =
-
-Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
 
 ==13 Oct 2008: r177==
 
