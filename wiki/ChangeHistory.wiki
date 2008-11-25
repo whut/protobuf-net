@@ -5,7 +5,10 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-(none)
+==25 Nov 2008: r214==
+
+  * ProtoGen: simpler field names; default unspecified field-type to double (not int)
+  * Fixed private class issue on CF 2.0
 
 = Releases =
 
