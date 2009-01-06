@@ -5,7 +5,11 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-(all up to date)
+==06 Jan 2008==
+
+  * Fixed inheritance issue when a property (or list) is defined a *subtype* of a contract; [de]serializes starting
+    from the highest contract ancestor (previously started from member type)
+  * Consider abstract types as contracts (allows for abstract contract ancestors for above change)
 
 = Releases =
 
