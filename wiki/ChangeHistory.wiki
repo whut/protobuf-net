@@ -5,18 +5,20 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-==09 Feb 2008==
+==(all up to date)==
+
+= Releases =
+
+Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
+
+==09 Feb 2009: r225==
 
   * Fixed inheritance issue when a property (or list) is defined a *subtype* of a contract; [de]serializes starting
     from the highest contract ancestor (previously started from member type)
   * Consider abstract types as contracts (allows for abstract contract ancestors for above change)
   * Fixed inheritance issue when [de]serializing via Serializer
   * Removed [ProtoContract] from Extensible - breaks derived classes
-
-= Releases =
-
-Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
-
+  
 ==10 Dec 2008: r219==
 
   * Allow offset via attribute for WCF (data-member) usage; allows compatibility between WCF client/LINQ server
