@@ -5,7 +5,9 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-==(all up to date)==
+==11 Fev 2009==
+
+  * Complain if [ProtoInclude] conflicts with an existing tag
 
 = Releases =
 
