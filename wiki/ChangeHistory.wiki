@@ -5,18 +5,17 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-==12 Feb 2009==
-
-  * Support {name}Specified pattern
-  
-==11 Feb 2009==
-
-  * Complain if [ProtoInclude] conflicts with an existing tag
-
 = Releases =
 
 Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
 
+==13 Feb 2009: r230==
+
+  * Support {name}Specified pattern
+  * xslt changes for above (includes ComponentModel etc); general xslt tidy
+  * Better trace info when deserialization explodes (in exception data)
+  * Complain if [ProtoInclude] conflicts with an existing tag
+  
 ==09 Feb 2009: r225==
 
   * Fixed inheritance issue when a property (or list) is defined a *subtype* of a contract; [de]serializes starting
