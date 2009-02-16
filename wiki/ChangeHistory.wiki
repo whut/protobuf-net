@@ -5,6 +5,12 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
+==16 Feb 2009==
+
+  * Use Reflection.Emit to access fields (rather than reflection) when available
+  * Introduce callback interface (not yet integrated)
+  * Add TryReadLengthPrefix to public API (for async network usage)
+  
 = Releases =
 
 Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
