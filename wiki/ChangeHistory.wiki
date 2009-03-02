@@ -5,6 +5,10 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
+==02 Mar 2009==
+
+  * Strong naming of CF20/CF35/Mono
+
 ==19 Feb 2009==
 
   * Better support for *Specified; non-public; get-only; instance
