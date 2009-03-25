@@ -5,6 +5,11 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
+==25 Mar 2009==
+
+  * Early (not final) draft of working RPC, including C# 3.0 extension / lambda usage.
+  * Beginnings of major refactor to split the model from attributes
+
 ==02 Mar 2009==
 
   * Strong naming of CF20/CF35/Mono
