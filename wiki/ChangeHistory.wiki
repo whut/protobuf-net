@@ -5,6 +5,13 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
+==02 Apr 2009==
+
+  * Allow data-member offset in Silverlight
+  * Fix bug deserializing nested list/enumerables
+  * More RPC prep
+  * ProtoGen now uses exe path correctly
+
 ==26 Mar 2009==
 
   * Early (not final) draft of working RPC, including C# 3.0 extension / lambda usage.
