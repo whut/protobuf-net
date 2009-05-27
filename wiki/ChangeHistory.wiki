@@ -5,6 +5,13 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
+==22 May 2009==
+
+  * Improved support for namespaces when using multiple .proto files;
+    * added -ns:{ns} to specify a default namespace (used when there is no package)
+    * added -p:import={imports} to specify namespaces to import ("using")
+    * fixed bug with default namespace
+
 ==02 Apr 2009==
 
   * Allow data-member offset in Silverlight
