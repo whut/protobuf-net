@@ -5,9 +5,17 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-==28 May 2009==
+(the big refactor...)
 
-  * Packed encoding support for lists (not yet arrays)
+= Releases =
+
+Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
+
+==02 Jun 2009: r255==
+
+  * Packed encoding support for lists, arrays, etc
+  * Support for packed and deprecated from .proto
+  * Updated protoc 2.1
   
 ==22 May 2009==
 
@@ -42,10 +50,6 @@ Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads
   * Use Reflection.Emit to access fields (rather than reflection) when available
   * Introduce callback interface (not yet integrated)
   * Add TryReadLengthPrefix to public API (for async network usage)
-  
-= Releases =
-
-Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
 
 ==13 Feb 2009: r230==
 
