@@ -5,8 +5,9 @@
 
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
-(the big refactor...)
-
+  * (the big refactor...)
+  * VB support
+  
 = Releases =
 
 Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
