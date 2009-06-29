@@ -7,6 +7,11 @@ Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads
 
   * (the big refactor...)
   * VB support
+  * Automatic case handling in .proto ($fixCase - C# only at the moment)
+  * Namespace fixes
+  * BUGFIX: assembly resolution from attribute
+  * Allow unknown enums to carry through without raising an exception; stored in the
+	extension object if supported, else drops
   
 = Releases =
 
