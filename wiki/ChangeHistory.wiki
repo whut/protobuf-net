@@ -6,16 +6,20 @@
 Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
 
   * (the big refactor...)
+
+= Releases =
+
+Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
+
+==01 Jul 2009: r261==
+
+  * BREAKING CHANGE: protogen using wrong type for fixed-length ints
   * VB support
   * Automatic case handling in .proto ($fixCase - C# only at the moment)
   * Namespace fixes
   * BUGFIX: assembly resolution from attribute
   * Allow unknown enums to carry through without raising an exception; stored in the
-	extension object if supported, else drops
-  
-= Releases =
-
-Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
+	extension object if supported, else drops 
 
 ==02 Jun 2009: r255==
 
