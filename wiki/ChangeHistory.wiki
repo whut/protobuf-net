@@ -11,6 +11,10 @@ Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads
 
 Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
 
+==16 Jul 2009: r262==
+
+  * Visual Studio support (early)
+
 ==01 Jul 2009: r261==
 
   * BREAKING CHANGE: protogen using wrong type for fixed-length ints
