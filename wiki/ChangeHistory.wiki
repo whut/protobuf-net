@@ -3,9 +3,11 @@
 
 =Work In Progress=
 
-Not available in [http://code.google.com/p/protobuf-net/downloads/list Downloads], but available as [http://code.google.com/p/protobuf-net/source/list Source].
+== 09 Oct 2009: r274
 
-  * (the big refactor...)
+  * flags enums support; ushort support
+  * better custom attribute support
+  * WCF endpoint configuration support
 
 = Releases =
 
