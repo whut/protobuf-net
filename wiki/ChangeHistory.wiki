@@ -3,6 +3,12 @@
 
 =Work In Progress=
 
+== 25 Nov 2009; r276
+
+  * uri encoding fix
+  * support IDictionary<,>
+  * optimised constructor calls
+  
 == 09 Oct 2009: r274
 
   * flags enums support; ushort support
