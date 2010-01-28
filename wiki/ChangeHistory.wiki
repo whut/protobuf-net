@@ -1,8 +1,19 @@
 ﻿#summary What's new in each version
 #labels Featured
 
-=Work In Progress=
+=Downloads=
 
+are avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
+
+=History=
+
+== 28 Jan 2010; r281
+
+  * string interning
+  * CF nongeneric bugfix
+  * allow duplicated enums (different name, same wire-value *and* enum-value)
+  * added memcached transcoder
+  
 == 25 Nov 2009; r276
 
   * uri encoding fix
@@ -14,10 +25,6 @@
   * flags enums support; ushort support
   * better custom attribute support
   * WCF endpoint configuration support
-
-= Releases =
-
-Avaialable via [http://code.google.com/p/protobuf-net/downloads/list Downloads].
 
 ==16 Jul 2009: r262==
 
