@@ -21,6 +21,8 @@ Protobuf-net needs to be able to associate data with unique / reliable integer k
 
 If you can't edit the member code directly (for example generated code), you can also use `[ProtoPartialMember]` *at the type level* to tell it about the members to include.
 
+Individual members can also be marked with `[DefaultValue]`, which is one of several ways of controlling conditional serialization.
+
 == Inheritance ==
 
 Protobuf-net needs to know about inheritance in advance, via `[ProtoInclude]`. Since they lack the necessary "key" information, `[XmlInclude]` and `[KnownType]` **cannot** work here.
