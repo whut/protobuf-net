@@ -6,7 +6,7 @@ The following is not complete, but is some of the key features available with pr
   * fast binary serialization
   * conforms to the "protobuf" specification (with additional features available optionally)
   * highly version tolerant
-  * attribute-based configuration, or explicit configurable with parallel and independent models
+  * attribute-based configuration, or explicit configuration with parallel and independent models
   * fully thread-safe, so a single model can be used efficiently
   * optimized IL generation with internal caching
   * static serialization dll generation if required
