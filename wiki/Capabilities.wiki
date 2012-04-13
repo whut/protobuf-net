@@ -10,7 +10,7 @@ The following is not complete, but is some of the key features available with pr
   * fully thread-safe, so a single model can be used efficiently
   * optimized IL generation with internal caching
   * static serialization dll generation if required
-  * serialization callbacks
+  * serialization callback support
   * automatic string re-use when deserializing
   * optional string re-use when serializing (changes the layout)
   * tree-based serialization with cycle detection (full-graph optional, see later)
