@@ -19,7 +19,7 @@ The following is not complete, but is some of the key features available with pr
   * streamable deserialization for consuming an endless stream (sockets etc)
   * support for lists and individual items
   * conditional serialization (based on default values or on user-code)
-  * parameterless constructors, nil constructors, or user-supplied factory methods for type construction
+  * support for parameterless constructors, zero-constructors, or user-supplied factory methods for type construction
   * inheritance support, including abstract type support and inheritance of inter-related generic types
   * support for all standard BCL types
   * optional reference-tracking for full-graph support
