@@ -1,0 +1,37 @@
+#summary What attributes control protobuf-net serialization?
+
+= Introduction =
+
+By default, protobuf-net uses attributes for configuration. Note that in v2 everything can _also_ be configured at runtime without needing to edit any types.
+
+== Contract types ==
+
+Protobuf-net expects contract types to be explicitly marked as such; types can be marked `[ProtoContract]`, `[DataContract]` or `[XmlType]` for this purpose (`[Serializable]` is not required and is not used). `[ProtoContract]`, as the library-specific attribute, allows more control:
+
+  * `SkipConstructor` - suppresses the type's constructor during deserialization
+  * `UseProtomembersOnly` - in a type marked with multiple attributes, ignore any members not explicity marked with `[ProtoMember]`
+  * `IgnoreListHandling` - even if the type looks like a list (`IEnumerable[<T>]` and `Add()`), use "instance" rules, not "list" rules  
+
+(and some more advanced properties relating to automatically inferring contracts)
+
+== Members ==
+
+Protobuf-net needs to be able to associate data with unique / reliable integer keys, since this is how the core protobuf spec (as defined by Google) identifies data. The minimum required is a key, so any of `[ProtoMember]`, `[DataMember]` or `[XmlElement]` can work (in the latter two cases, an `Order` *must* also be supplied).
+
+If you can't edit the member code directly (for example generated code), you can also use `[ProtoPartialMember]` *at the type level* to tell it about the members to include.
+
+== Inheritance ==
+
+Protobuf-net needs to know about inheritance in advance, via `[ProtoInclude]`. Since they lack the necessary "key" information, `[XmlInclude]` and `[KnownType]` **cannot** work here.
+
+== Enums ==
+
+Enums _can_ be marked with `[ProtoEnum]`, but this is not required, unless you specifically need to override the values used on the wire.
+
+== Callbacks ==
+
+Protobuf-net supports the usual callback APIs, including `[OnSerializing]`, `[OnSerialized]`, `[OnDeserializing]`, `[OnDeserialized]`, `[ProtoBeforeSerialization]`, `[ProtoBeforeDeserialization]`, `[ProtoAfterSerialization]`, `[ProtoAfterDserialization]`.
+
+== Why duplicate?
+
+Not all frameworks have all attributes, so protobuf-net supplies a set that can be used anywhere, but also _tries_ to let you use your existing attributes where possible.
