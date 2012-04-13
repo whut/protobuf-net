@@ -28,5 +28,6 @@ The following is not complete, but is some of the key features available with pr
   * can be used to implement `ISerializable` to streamline remoting
   * optional automatic member selection (contract inference)
   * optional "contract first" schema language (".proto") can be used for type generation, but is not required
+  * support for common "proxy" types (EF, NHibernate, etc)
 
 I have certainly missed a great many features here. If there are specific features you are interested in, or want an example for, let me know.
