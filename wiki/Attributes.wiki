@@ -49,6 +49,6 @@ Enums _can_ be marked with `[ProtoEnum]`, but this is not required, unless you s
 
 Protobuf-net supports the usual callback APIs, including `[OnSerializing]`, `[OnSerialized]`, `[OnDeserializing]`, `[OnDeserialized]`, `[ProtoBeforeSerialization]`, `[ProtoBeforeDeserialization]`, `[ProtoAfterSerialization]`, `[ProtoAfterDserialization]`.
 
-== Why duplicate?
+== Why duplicate? ==
 
 Not all frameworks have all attributes, so protobuf-net supplies a set that can be used anywhere, but also _tries_ to let you use your existing attributes where possible. Unless you are using the additional settings on the protobuf-net specific attributes, they work identically - for example, a type marked using `[ProtoContract]` and `[ProtoMember]` (without custom settings) will opeate identically to a type marked using `[DataContract]` and `[DataMember]`.
