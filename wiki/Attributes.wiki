@@ -34,7 +34,7 @@ Individual members can also be marked with `[DefaultValue]`, which is one of sev
    * suppressing the constructor
    * using a before-deserialization callback to clear the list
   * `AsReference` - enables reference tracking of the sub-object; this uses a *very different* serialization layout, but will only serialize that object *once* (giving it a unique token for referencing). This allows full-graph support for otherwise cyclic graphs. This can also be used to great effect to efficiently store common strings that are otherwise repeated many times in the data
-  * `DynamicType` - stores additional `Type` information with the type (by default it includes the `AssemblyQualifiedName`, although this can be controlled by the user). This makes it possible to serialize weak models, i.e. where `object` is used for property members, however currently this is limited to *contract* types (not primitives), and does not work for types with inheritance (these limitations may be removed at a later time)
+  * `DynamicType` - stores additional `Type` information with the type (by default it includes the `AssemblyQualifiedName`, although this can be controlled by the user). This makes it possible to serialize weak models, i.e. where `object` is used for property members, however currently this is limited to *contract* types (not primitives), and does not work for types with inheritance (these limitations may be removed at a later time). Like with `AsReference`, this uses a very different layout format
 
 
 == Inheritance ==
