@@ -108,3 +108,22 @@ This reads the data back from "person.bin". Note we need to tell it the type thi
 ==Deployment==
 
 You must deploy the protobuf-net dll alongside your project. Make sure you deploy the version appropriate to your environment.
+
+==Inheritance==
+
+Inheritance must be explicitly declared, in a similar way that if must for `XmlSerializer` and `DataContractSerializer`. This is done via `[ProtoInclude(...)]` on each type with known sub-types:
+
+{{{
+    [ProtoContract]
+    [ProtoInclude(7, typeof(SomeDerivedType)]
+    class SomeBaseType {...}
+
+    [ProtoContract]
+    class SomeDerivedType {...}
+}}}
+
+There is no special significance in the `7` above; it is an integer key, just like every `[ProtoMember(...)]`. It must be unique in terms of `SomeBaseType` (no other `[ProtoInclude(...)]` or `[ProtoMember(...)]` in `SomeBaseType` can use `7`), but does not need to be unique globally.
+
+==Don't Like Attributes?==
+
+In v2, everything that can be done with attributes can also be configured at runtime via `RuntimeTypeModel`. The `Serializer.*` methods are basically just shortcuts to `RuntimeTypeModel.Default.*`, so to manipulate the behaviour of `Serializer.*`, you must configure `RuntimeTypeModel.Default`.
