@@ -1,6 +1,7 @@
+#summary What's new in each version
+
 This page is an **archive of early changes only**, and is not maintained. Please see the [http://nuget.org/packages/protobuf-net/ Nuget Package] release notes for more recent changes.
 
-#summary What's new in each version
 
 =Downloads=
 
