@@ -1,0 +1,3 @@
+#summary Issues now hosted on github
+
+[https://github.com/mgravell/protobuf-net/issues Please report issues on github]. An archive of old issues is [https://code.google.com/p/protobuf-net/issues/list available here].
