@@ -1,0 +1,3 @@
+#summary Google code no longer accepts file uploads
+
+Older downloads are [https://code.google.com/p/protobuf-net/downloads/list available here], but I recommend using the [https://www.nuget.org/packages/protobuf-net NuGet package] instead.
